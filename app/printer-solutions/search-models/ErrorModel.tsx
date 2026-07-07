@@ -343,7 +343,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                         </div>
                         <button
                             onClick={() => setShowChatUnavailable(true)}
-                            className="w-full px-4 py-2.5 rounded-lg bg-white text-blue-700 font-bold hover:bg-blue-50 transition text-sm shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                            className="w-full px-4 py-2.5 cursor-pointer rounded-lg bg-white text-blue-700 font-bold hover:bg-blue-50 transition text-sm shadow-xl hover:shadow-2xl hover:scale-105 transform"
                         >
                             💬 Start Chat Now - We're Online!
                         </button>
@@ -391,7 +391,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                             <div className="px-6 pb-6 pt-4 border-t border-slate-200">
                                 <button
                                     onClick={() => setShowChatUnavailable(false)}
-                                    className="w-full px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
+                                    className="w-full cursor-pointer px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
                                 >
                                     Got it, thanks!
                                 </button>
