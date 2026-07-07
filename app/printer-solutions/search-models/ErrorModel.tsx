@@ -306,7 +306,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
               <div className="bg-blue-50 border border-blue-300 p-3 rounded-lg">
                 <h4 className="font-bold text-blue-900 text-xs mb-2">🔍 What Went Wrong:</h4>
                 <p className="text-blue-800 text-xs leading-relaxed">
-                  The installation reached 100% but your printer wasn't detected during USB handshake. This usually means:
+                  Your printer setup reached 77%, but the installation couldn't be completed. This may be caused by one of the following issues:
                 </p>
                 <ul className="text-blue-800 text-xs mt-2 space-y-1.5 ml-3">
                   <li className="flex gap-2">
