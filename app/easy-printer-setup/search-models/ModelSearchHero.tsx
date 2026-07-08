@@ -1,15 +1,25 @@
 ﻿"use client"
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Search, ArrowRight } from "lucide-react";
 import ErrorModel from "./ErrorModel";
+import SupportChatWidget from "@/components/easy-printer-setup/SupportChatWidget";
 
 function ModelSearchHero() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showRedBorder, setShowRedBorder] = useState(false);
   const [modelNumber, setModelNumber] = useState("");
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [allowStartNow, setAllowStartNow] = useState(true);
+
+  useEffect(() => {
+    void fetch("/api/easy-printer-setup/settings")
+      .then((res) => res.json())
+      .then((data) => setAllowStartNow(data.allowStartNow !== false))
+      .catch(() => setAllowStartNow(true));
+  }, []);
 
   const handleDownloadClick = () => {
     setShowRedBorder(true);
@@ -31,6 +41,12 @@ function ModelSearchHero() {
       }
       return;
     }
+
+    if (!allowStartNow) {
+      setIsChatOpen(true);
+      return;
+    }
+
     setModelNumber(model);
     setIsErrorModalOpen(true);
   };
@@ -61,20 +77,21 @@ function ModelSearchHero() {
               </button>
             </div>
 
-            <div className="relative mx-auto max-w-xl">
-              <div className="absolute -left-10 top-10 h-28 w-28 rounded-full bg-blue-500/30 blur-3xl" />
-              <div className="absolute -right-10 -bottom-10 h-28 w-28 rounded-full bg-blue-400/20 blur-3xl" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-slate-600 bg-slate-800/50 shadow-xl shadow-slate-900/50">
-                <Image
-                  src="/model-search-printer.png"
-                  alt="Printer model search"
-                  width={900}
-                  height={600}
-                  loading="eager"
-                  className="h-full w-full object-cover"
-                />
-              </div>
-            </div>
+           <div className="relative mx-auto max-w-xl">
+  <div className="absolute -left-10 top-10 h-28 w-28 rounded-full bg-blue-500/30 blur-3xl" />
+  <div className="absolute -right-10 -bottom-10 h-28 w-28 rounded-full bg-blue-400/20 blur-3xl" />
+
+  <div className="relative overflow-hidden rounded-[2rem] border border-slate-600 bg-slate-800/50 py-[15px] shadow-xl shadow-slate-900/50">
+    <Image
+      src="/model-search-printerIMG.png"
+      alt="Printer model search"
+      width={900}
+      height={600}
+      loading="eager"
+      className="h-full w-full rounded-[calc(2rem-3px)] object-cover"
+    />
+  </div>
+</div>
           </div>
         </div>
       </section>
@@ -143,6 +160,10 @@ function ModelSearchHero() {
         isOpen={isErrorModalOpen} 
         onClose={() => setIsErrorModalOpen(false)}
         modelNumber={modelNumber}
+      />
+      <SupportChatWidget 
+        isOpen={isChatOpen}
+        onClose={() => setIsChatOpen(false)}
       />
     </>
   );
