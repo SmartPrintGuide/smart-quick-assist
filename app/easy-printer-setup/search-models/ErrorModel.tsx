@@ -175,7 +175,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                     </div>
                     <button
                         onClick={onClose}
-                        className="rounded-full p-1.5 hover:bg-slate-200 transition"
+                        className="rounded-full cursor-pointer p-1.5 hover:bg-slate-200 transition"
                     >
                         <X size={20} className="text-slate-600" />
                     </button>

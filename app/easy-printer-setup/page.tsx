@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Professional Printer Setup & Support',
     description: 'Simple, clear steps for every printer problem. Get back to printing faster.',
-    url: 'https://smartquickassist.com/printer-solutions',
+    url: 'https://smartquickassist.com/easy-printer-setup',
     type: 'website',
   },
 };

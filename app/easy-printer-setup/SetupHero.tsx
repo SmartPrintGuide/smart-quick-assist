@@ -62,7 +62,7 @@ export default function SetupHero() {
                         <div className="mt-8 flex flex-wrap items-center gap-4">
 
                             <button
-                                onClick={() => router.push("/printer-solutions/search-models")}
+                                onClick={() => router.push("/easy-printer-setup/search-models")}
                                 className="group inline-flex cursor-pointer items-center gap-2 rounded-lg bg-[#1965D9] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#1557bf] hover:shadow-lg active:scale-95"
                             >
                                 Click Here For Printer Setup
@@ -121,31 +121,17 @@ export default function SetupHero() {
 
                     </div>
 
+                    {/* Right - Printer Image */}
                     <div className="order-1 flex items-center justify-center lg:order-2">
-                        <div className="relative mx-auto w-full max-w-[480px]">
+                        <div className="mx-auto w-full max-w-[480px]">
 
-                            {/* Background Glow */}
-                            <div className="absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-blue-400/20 via-sky-300/20 to-indigo-300/20 blur-[70px]" />
+                            <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl">
 
-                            {/* Decorative Blur */}
-                            <div className="absolute -top-3 right-5 h-14 w-14 rounded-full bg-blue-100/70 blur-lg" />
-                            <div className="absolute bottom-4 -left-3 h-16 w-16 rounded-full bg-sky-100/80 blur-lg" />
-
-                            {/* Bottom Glow */}
-                            <div className="absolute bottom-3 left-1/2 h-10 w-52 -translate-x-1/2 rounded-full bg-blue-500/20 blur-3xl" />
-
-                            {/* Card */}
-                            <div className="relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white px-2 py-1 shadow-[0_18px_40px_rgba(37,99,235,0.12)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_28px_55px_rgba(37,99,235,0.18)]">
-
-                                {/* Gradient */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-sky-50" />
-
-                                {/* Image */}
-                                <div className="relative z-10 flex items-center justify-center">
+                                <div className="flex items-center justify-center">
                                     <img
                                         src="/setup1-printer.png"
                                         alt="Printer"
-                                        className="w-full max-w-[380px] object-contain transition duration-500 hover:scale-[1.03] drop-shadow-[0_18px_28px_rgba(37,99,235,0.18)]"
+                                        className="w-full max-w-[380px] object-contain transition-transform duration-300 group-hover:scale-[1.02]"
                                     />
                                 </div>
 
@@ -158,74 +144,30 @@ export default function SetupHero() {
 
 
 
-        {/* Services Cards */}
-<div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-  {services.map((service) => (
-    <div
-      key={service.title}
-      className="group relative flex h-36 cursor-pointer items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-[0_18px_40px_rgba(25,101,217,0.14)] shadow-[0_10px_28px_rgba(15,23,42,0.06)]"
-    >
-      {/* Top Glow - Always Visible */}
-      <div
-        className="
-          absolute left-1/2 top-0
-          h-32 w-32
-          -translate-x-1/2 -translate-y-8
-          rounded-full
-          bg-blue-400/15
-          blur-3xl
-          transition-all
-          duration-300
-          group-hover:h-[150px]
-          group-hover:w-[150px]
-          group-hover:bg-blue-400/20
-        "
-      />
+                {/* Services Cards */}
+                <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                    {services.map((service) => (
+                        <div
+                            key={service.title}
+                            className="group relative flex h-36 cursor-pointer items-center justify-center overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl"
+                        >
 
-      {/* Bottom Glow - Always Visible */}
-      <div
-        className="
-          absolute bottom-0 left-1/2
-          h-20 w-24
-          -translate-x-1/2 translate-y-6
-          rounded-full
-          bg-sky-300/12
-          blur-2xl
-          transition-all
-          duration-300
-          group-hover:h-24
-          group-hover:w-28
-          group-hover:bg-sky-300/18
-        "
-      />
 
-      {/* Soft Light Overlay */}
-      <div
-        className="
-          absolute inset-0
-          bg-gradient-to-b
-          from-blue-50/20
-          via-transparent
-          to-transparent
-          transition-all
-          duration-300
-          group-hover:from-blue-50/30
-        "
-      />
+                            {/* Content */}
+                            <div className="relative z-10 flex flex-col items-center justify-center text-center">
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center text-center p-4">
-        <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-lg bg-blue-50 text-[#1965D9]">
-          {service.icon}
-        </div>
+                                <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-50 text-[#1965D9]">
+                                    {service.icon}
+                                </div>
 
-        <h3 className="text-sm font-bold leading-5 text-slate-900">
-          {service.title}
-        </h3>
-      </div>
-    </div>
-  ))}
-</div>
+                                <h3 className="text-sm font-bold text-slate-900">
+                                    {service.title}
+                                </h3>
+
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </div>
 
         </section>

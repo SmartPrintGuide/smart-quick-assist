@@ -9,7 +9,7 @@ import ScrollToTop from '@/components/ScrollToTop';
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isAdminRoute = pathname.startsWith('/admin/') || pathname === '/admin';
-  const isPrinterSolutionsRoute = pathname === '/printer-solutions' || pathname.startsWith('/printer-solutions/');
+  const isPrinterSolutionsRoute = pathname === '/easy-printer-setup' || pathname.startsWith('/easy-printer-setup/');
   const shouldShowShell = !isAdminRoute && !isPrinterSolutionsRoute;
 
   return (

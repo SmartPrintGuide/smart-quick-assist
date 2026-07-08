@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Download Printer Drivers - Quick Setup',
     description: 'Find and download the perfect printer driver for your model. Simple USB installation process.',
-    url: 'https://smartquickassist.com/printer-solutions/search-models',
+    url: 'https://smartquickassist.com/easy-printer-setup/search-models',
     type: 'website',
   },
 };
