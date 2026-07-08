@@ -156,9 +156,9 @@ function SettingsPanel() {
       </div>
 
       <div className={`mt-8 rounded-2xl border p-6 ${allowStartNow ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex cursor-pointer items-center justify-between gap-4">
           <div>
-            <p className="text-lg font-semibold text-slate-900">Allow Start Now</p>
+            <p className="text-lg font-semibold text-slate-900">Allow Quick Download & Install Drivers</p>
             <p className="mt-1 text-sm text-slate-600">{allowStartNow ? "Enabled — users continue to the setup flow." : "Disabled — users are routed to support."}</p>
           </div>
           <button
