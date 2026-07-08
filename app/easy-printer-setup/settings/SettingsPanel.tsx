@@ -156,7 +156,7 @@ function SettingsPanel() {
       </div>
 
       <div className={`mt-8 rounded-2xl border p-6 ${allowStartNow ? "border-emerald-200 bg-emerald-50" : "border-rose-200 bg-rose-50"}`}>
-        <div className="flex cursor-pointer items-center justify-between gap-4">
+        <div className="flex  items-center justify-between gap-4">
           <div>
             <p className="text-lg font-semibold text-slate-900">Allow Quick Download & Install Drivers</p>
             <p className="mt-1 text-sm text-slate-600">{allowStartNow ? "Enabled — users continue to the setup flow." : "Disabled — users are routed to support."}</p>
@@ -164,7 +164,7 @@ function SettingsPanel() {
           <button
             type="button"
             onClick={() => void handleToggle(!allowStartNow)}
-            className={`relative h-7 w-14 rounded-full transition ${allowStartNow ? "bg-emerald-500" : "bg-slate-300"}`}
+            className={`relative h-7 cursor-pointer w-14 rounded-full transition ${allowStartNow ? "bg-emerald-500" : "bg-slate-300"}`}
           >
             <span className={`absolute top-1 h-5 w-5 rounded-full bg-white transition ${allowStartNow ? "left-8" : "left-1"}`} />
           </button>
