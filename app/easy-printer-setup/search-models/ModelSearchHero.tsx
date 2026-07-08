@@ -4,14 +4,13 @@ import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Search, ArrowRight } from "lucide-react";
 import ErrorModel from "./ErrorModel";
-import SupportChatWidget from "@/components/easy-printer-setup/SupportChatWidget";
+import { openJivoChat } from "@/lib/jivoChat";
 
 function ModelSearchHero() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showRedBorder, setShowRedBorder] = useState(false);
   const [modelNumber, setModelNumber] = useState("");
   const [isErrorModalOpen, setIsErrorModalOpen] = useState(false);
-  const [isChatOpen, setIsChatOpen] = useState(false);
   const [allowStartNow, setAllowStartNow] = useState(true);
 
   useEffect(() => {
@@ -43,7 +42,7 @@ function ModelSearchHero() {
     }
 
     if (!allowStartNow) {
-      setIsChatOpen(true);
+      openJivoChat();
       return;
     }
 
@@ -160,10 +159,6 @@ function ModelSearchHero() {
         isOpen={isErrorModalOpen} 
         onClose={() => setIsErrorModalOpen(false)}
         modelNumber={modelNumber}
-      />
-      <SupportChatWidget 
-        isOpen={isChatOpen}
-        onClose={() => setIsChatOpen(false)}
       />
     </>
   );

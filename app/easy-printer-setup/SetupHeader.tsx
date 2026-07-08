@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { openJivoChat } from "@/lib/jivoChat";
 
 const SetupHeader = () => {
   return (
@@ -17,12 +18,13 @@ const SetupHeader = () => {
         </a>
 
 
-        <a
-          href="#"
-          className="inline-flex items-center justify-center rounded-lg bg-white px-3 py-2 text-xs font-semibold text-[#1965D9] shadow-md transition-all duration-300 hover:bg-slate-100 hover:shadow-lg sm:px-5 sm:text-sm"
+        <button
+          type="button"
+          onClick={openJivoChat}
+          className="inline-flex cursor-pointer items-center justify-center rounded-lg bg-white px-3 py-2 text-xs font-semibold text-[#1965D9] shadow-md transition-all duration-300 hover:bg-slate-100 hover:shadow-lg sm:px-5 sm:text-sm"
         >
           Chat with Expert
-        </a>
+        </button>
 
       </div>
     </header>

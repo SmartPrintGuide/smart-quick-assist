@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { openJivoChat } from "@/lib/jivoChat";
 import {
   Headphones,
   MessageCircleMore,
@@ -62,7 +63,11 @@ export default function SupportOptions() {
 
             <div className="mt-8">
 
-              <button className="group cursor-pointer inline-flex items-center gap-2 rounded-xl bg-[#1965D9] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/40">
+              <button
+                type="button"
+                onClick={openJivoChat}
+                className="group cursor-pointer inline-flex items-center gap-2 rounded-xl bg-[#1965D9] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/40"
+              >
 
                 Start Live Chat
 

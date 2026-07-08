@@ -1,6 +1,7 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
 import { X, MessageCircle } from 'lucide-react';
+import { openJivoChat } from '@/lib/jivoChat';
 
 interface ErrorModalProps {
     isOpen: boolean;
@@ -14,7 +15,6 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
     const [state, setState] = useState<ModalState>('loading');
     const [loadingSteps, setLoadingSteps] = useState<string[]>([]);
     const [loadingPercent, setLoadingPercent] = useState(0);
-    const [showChatUnavailable, setShowChatUnavailable] = useState(false);
     const terminalRef = useRef<HTMLDivElement>(null);
 
 
@@ -341,63 +341,14 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                             </div>
                         </div>
                         <button
-                            onClick={() => setShowChatUnavailable(true)}
+                            type="button"
+                            onClick={openJivoChat}
                             className="w-full px-4 py-2.5 cursor-pointer rounded-lg bg-white text-blue-700 font-bold hover:bg-blue-50 transition text-sm shadow-xl hover:shadow-2xl hover:scale-105 transform"
                         >
                             💬 Start Chat Now - We're Online!
                         </button>
                     </div>
                 </div>
-
-                {/* Chat Unavailable Popup */}
-                {showChatUnavailable && (
-                    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
-                        <div className="relative w-full max-w-sm rounded-2xl bg-white shadow-2xl overflow-hidden">
-                            <div className="bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-6">
-                                <div className="flex items-center gap-3">
-                                    <div className="text-4xl">⏰</div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-white">Chat Support Unavailable</h3>
-                                        <p className="text-sm text-blue-100 mt-1">We'll be back shortly</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="px-6 py-6 space-y-4">
-                                <p className="text-slate-700 text-sm leading-relaxed">
-                                    Our chat support team is currently offline. We're available 24/7 to help with your printer setup issues.
-                                </p>
-
-                                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                                    <p className="text-xs font-semibold text-blue-900 mb-2">💡 In the meantime:</p>
-                                    <ul className="text-xs text-blue-800 space-y-1.5">
-                                        <li className="flex gap-2">
-                                            <span>✓</span>
-                                            <span>Check our troubleshooting guides</span>
-                                        </li>
-                                        <li className="flex gap-2">
-                                            <span>✓</span>
-                                            <span>Try USB in different ports</span>
-                                        </li>
-                                        <li className="flex gap-2">
-                                            <span>✓</span>
-                                            <span>Restart your computer</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div className="px-6 pb-6 pt-4 border-t border-slate-200">
-                                <button
-                                    onClick={() => setShowChatUnavailable(false)}
-                                    className="w-full cursor-pointer px-4 py-2.5 rounded-lg bg-blue-600 text-white font-semibold hover:bg-blue-700 transition"
-                                >
-                                    Got it, thanks!
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                )}
             </div>
         </div>
     );
