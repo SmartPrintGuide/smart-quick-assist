@@ -32,11 +32,11 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
             return;
         }
 
-        // Generate random IDs for realistic USB info
+
         const vendorId = Math.floor(Math.random() * 65535).toString(16).padStart(4, '0');
         const productId = Math.floor(Math.random() * 65535).toString(16).padStart(4, '0');
 
-        // Comprehensive realistic installation steps - much longer for realism
+        // 
         const steps = [
             `> printer-driver-install --model "${modelNumber}" --mode usb --protocol 0x0003`,
             '[SYSTEM] Driver Installation Service v4.2.1 Started',
@@ -139,23 +139,22 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
         const stepInterval = setInterval(() => {
             if (stepIndex < steps.length) {
                 setLoadingSteps((prev) => [...prev, steps[stepIndex]]);
-                // Cap progress at 77% - create realistic partial failure
+              
                 const percent = Math.min(Math.round((stepIndex / (steps.length - 1)) * 77), 77);
                 setLoadingPercent(percent);
 
-                // Variable timing for more realistic feel
+                
                 let nextDelay = 220;
-                if (stepIndex < 10) nextDelay = 150; // Fast initial checks
-                else if (stepIndex < 35) nextDelay = 280; // Slower download
-                else if (stepIndex < 50) nextDelay = 200; // Medium speed extraction
-                else if (stepIndex < 70) nextDelay = 250; // Slower install
-                else nextDelay = 300; // Very slow at end (USB issues)
+                if (stepIndex < 10) nextDelay = 150; 
+                else if (stepIndex < 35) nextDelay = 280; 
+                else if (stepIndex < 50) nextDelay = 200; 
+                else if (stepIndex < 70) nextDelay = 250; 
+                else nextDelay = 300; 
 
                 stepIndex++;
             } else {
                 clearInterval(stepInterval);
-                // Don't set to 100% - stay at 77% to show partial failure
-                // Transition to error after loading completes
+               
                 setTimeout(() => setState('error'), 1200);
             }
         }, 220);
