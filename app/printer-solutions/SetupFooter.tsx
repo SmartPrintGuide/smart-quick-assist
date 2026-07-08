@@ -2,7 +2,7 @@ import React from "react";
 
 function SetupFooter() {
   return (
-    <footer className="bg-gradient-to-b from-blue-900 via-blue-950 to-slate-950 text-white">
+    <footer className="bg-[#1965D9] text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
 

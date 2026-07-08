@@ -1,62 +1,113 @@
 "use client";
 
 import React from "react";
-import { Headphones, MessageCircleMore, Sparkles } from "lucide-react";
+import {
+  Headphones,
+  MessageCircleMore,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 
 const supportItems = [
   {
-    title: "Fast checklists",
+    title: "Easy Guides",
     description:
-      "Start with the issue you are seeing and follow short, plain-English steps.",
+      "Follow simple step-by-step instructions for common printer issues.",
     icon: <Sparkles size={20} />,
   },
   {
-    title: "Friendly help",
+    title: "Live Chat",
     description:
-      "Get clear guidance for setup, Wi-Fi, offline errors, and scanner problems.",
+      "Talk with our support team for quick troubleshooting assistance.",
     icon: <MessageCircleMore size={20} />,
   },
   {
-    title: "Real support",
+    title: "Expert Support",
     description:
-      "Use our help center and contact options when you need a little extra guidance.",
+      "Get reliable help with setup, Wi-Fi, scanner, and offline problems.",
     icon: <Headphones size={20} />,
   },
 ];
 
 export default function SupportOptions() {
   return (
-    <section id="help" className="bg-white py-16 sm:py-20">
+    <section
+      id="help"
+      className="bg-gradient-to-b from-white via-slate-50 to-white py-20"
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm sm:p-8 lg:grid-cols-[1.2fr_0.8fr] lg:p-10">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-              Need a hand?
-            </p>
-            <h2 className="mt-3 text-2xl font-bold text-slate-900 sm:text-3xl tracking-tight" style={{fontFamily: "'Poppins', 'Inter', sans-serif"}}>
-              Simple help that feels human.
+
+        <div className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,.06)] lg:grid-cols-[1fr_1fr] lg:p-10">
+
+          {/* Left */}
+
+          <div className="flex flex-col justify-center">
+
+            <span className="inline-flex w-fit items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#1965D9]">
+              Need Help?
+            </span>
+
+            <h2
+              className="mt-6 text-3xl font-bold tracking-tight text-slate-900 lg:text-4xl"
+              style={{ fontFamily: "'Poppins','Inter',sans-serif" }}
+            >
+              We're Here to
+              <br />
+              Make Printing Easy.
             </h2>
-            <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600 sm:text-base font-light" style={{fontFamily: "'Poppins', 'Inter', sans-serif"}}>
-              Whether your printer is offline, refusing to connect, or just acting up,
-              we keep the steps short, calm, and easy to follow.
+
+            <p className="mt-5 max-w-lg text-[16px] leading-8 text-slate-600">
+              Set up your printer or fix Wi-Fi, offline, and scanner issues with easy guides and expert support.
             </p>
+
+            <div className="mt-8">
+
+              <button className="group cursor-pointer inline-flex items-center gap-2 rounded-xl bg-[#1965D9] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/40">
+
+                Start Live Chat
+
+                <ArrowRight
+                  size={17}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+
+              </button>
+
+              <p className="mt-3 text-sm text-slate-500">
+                Average response time: under 2 minutes.
+              </p>
+
+            </div>
+
           </div>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="space-y-4">
-              {supportItems.map((item) => (
-                <div key={item.title} className="flex gap-3 rounded-xl bg-slate-50 p-3">
-                  <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-slate-900">{item.title}</h3>
-                    <p className="mt-1 text-sm leading-6 text-slate-600">{item.description}</p>
-                  </div>
+          {/* Right */}
+
+          <div className="space-y-5">
+
+            {supportItems.map((item) => (
+              <div
+                key={item.title}
+                className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1965D9] transition-all duration-300 group-hover:bg-[#1965D9] group-hover:text-white">
+                  {item.icon}
                 </div>
-              ))}
-            </div>
+
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+
           </div>
+
         </div>
       </div>
     </section>

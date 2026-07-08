@@ -64,7 +64,7 @@ function CommonIssues() {
           {issues.map((item) => (
             <div
               key={item.title}
-              className="group rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
+              className="group cursor-pointer rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
             >
               <div className="flex items-start justify-between gap-3">
                 <div className="flex h-13 w-13 items-center justify-center rounded-2xl bg-blue-50 text-blue-700">
@@ -75,7 +75,7 @@ function CommonIssues() {
 
               <h3 className="mt-6 text-lg font-semibold text-slate-900">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{item.desc}</p>
-              <button className="mt-6 font-semibold text-blue-600 hover:underline">
+              <button className="mt-6 cursor-pointer font-semibold text-blue-600 hover:underline">
                 Read the fix →
               </button>
             </div>

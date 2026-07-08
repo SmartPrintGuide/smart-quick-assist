@@ -12,7 +12,7 @@ const SetupHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className=" top-0 z-30 bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 shadow-[0_5px_30px_-20px_rgba(15,23,42,0.4)]">
+    <header className=" top-0 z-30 bg-[#1965D9] shadow-[0_5px_30px_-20px_rgba(15,23,42,0.4)]">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 text-white sm:px-6 lg:px-8">
         <div className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100">
           Printer help
@@ -58,7 +58,7 @@ const SetupHeader = () => {
       </div>
 
       {isOpen && (
-        <div className="border-t border-white/10 bg-sky-600/95 px-4 pb-4 text-white sm:hidden">
+          <div className="border-t border-white/10 bg-[#1965D9]/95 px-4 pb-4 text-white sm:hidden">
           <div className="flex flex-col gap-2 pt-3 text-sm font-medium">
             {links.map((link) => (
               <a
