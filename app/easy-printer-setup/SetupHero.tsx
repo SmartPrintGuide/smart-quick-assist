@@ -60,7 +60,7 @@ export default function SetupHero() {
                         <div className="mt-7 flex justify-center lg:mt-8 lg:justify-start">
                             <button
                                 onClick={() => router.push("/easy-printer-setup/search-models")}
-                                className="group inline-flex items-center gap-2 rounded-lg bg-[#1965D9] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#1557bf] hover:shadow-lg active:scale-95"
+                                className="group cursor-pointer inline-flex items-center gap-2 rounded-lg bg-[#1965D9] px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-300 hover:bg-[#1557bf] hover:shadow-lg active:scale-95"
                             >
                                 Click Here For Printer Setup
 
@@ -72,7 +72,7 @@ export default function SetupHero() {
                         </div>
 
                         {/* Feature Cards */}
-                        <div className="mt-8 grid grid-cols-2 gap-3 lg:mt-10 lg:grid-cols-3 lg:gap-4">
+                        <div className="mt-8 cursor-pointer grid grid-cols-2 gap-3 lg:mt-10 lg:grid-cols-3 lg:gap-4">
 
                             {[
                                 {
@@ -117,7 +117,7 @@ export default function SetupHero() {
 
                     {/* Right - Printer Image */}
                     <div className="order-1 flex items-center justify-center lg:order-2">
-                        <div className="mx-auto w-full max-w-[480px]">
+                        <div className="mx-auto cursor-pointer w-full max-w-[480px]">
 
                             <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
