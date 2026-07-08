@@ -122,7 +122,7 @@ export default function SetupHero() {
                     </div>
 
                     {/* Right - Printer Image */}
-                    <div className="order-1 flex items-center justify-center lg:order-2">
+                    <div className="order-1  flex items-center justify-center lg:order-2">
                         <div className="mx-auto w-full max-w-[480px]">
 
                             <div className="group overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-blue-100 hover:shadow-xl">
