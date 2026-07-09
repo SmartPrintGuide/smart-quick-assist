@@ -132,7 +132,8 @@ export default function RootLayout({
             (function () {
               function loadJivo() {
                 var s = document.createElement("script");
-                s.src = "https://code.jivosite.com/widget/jnhsn3P8fW";
+                
+                s.src = "https://code.jivosite.com/widget/XjQJxqMY0d"; 
                 s.async = true;
                 document.body.appendChild(s);
               }
