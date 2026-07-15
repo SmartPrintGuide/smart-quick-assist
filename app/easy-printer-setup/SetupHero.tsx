@@ -38,22 +38,22 @@ export default function SetupHero() {
                             <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-white px-3 py-1.5 shadow-md lg:px-4 lg:py-2">
                                 <ShieldCheck size={15} className="text-[#1965D9]" />
                                 <span className="text-xs font-semibold text-slate-700 sm:text-sm">
-                                    Trusted Printer Support
+                                    Exclusive Printer Support
                                 </span>
                             </div>
                         </div>
 
                         {/* Heading */}
                         <h1
-                            className="mx-auto mt-5 max-w-full text-center text-[23px] font-bold leading-tight tracking-tight text-slate-900 sm:max-w-md sm:text-[36px] lg:mx-0 lg:mt-7 lg:max-w-xl lg:text-left lg:text-5xl lg:leading-[1.15]"
+                            className="mx-auto mt-5 max-w-full text-center text-[18px] font-bold leading-tight tracking-tight text-slate-900 sm:max-w-md sm:text-[36px] lg:mx-0 lg:mt-7 lg:max-w-xl lg:text-left lg:text-3xl lg:leading-[1.15]"
                             style={{ fontFamily: "'Poppins','Inter',sans-serif" }}
                         >
-                            Set Up Printer in Minutes
+                            Printer Setup & Troubleshooting 
                         </h1>
 
                         {/* Description */}
                         <p className="mx-auto mt-4 max-w-[330px] text-center text-[14px] leading-6 text-slate-600 sm:max-w-md sm:text-base sm:leading-7 lg:mx-0 lg:mt-5 lg:max-w-lg lg:text-left lg:text-[17px] lg:leading-8">
-                            Easy setup guides, Wi-Fi connection, offline fixes, and scanner troubleshooting with expert help whenever you need it.
+                           Follow clear, step-by-step guides for printer setup, Wi-Fi connection, offline issues, scanner problems, drivers, paper jams, and more.
                         </p>
 
                         {/* CTA */}
@@ -77,7 +77,7 @@ export default function SetupHero() {
                             {[
                                 {
                                     icon: <Headphones size={18} />,
-                                    title: "Live Support",
+                                    title: "Easy Guides",
                                 },
                                 {
                                     icon: <Wifi size={18} />,
@@ -85,7 +85,7 @@ export default function SetupHero() {
                                 },
                                 {
                                     icon: <ShieldCheck size={18} />,
-                                    title: "Secure",
+                                    title: "Fast Solutions",
                                 },
                             ].map((item, index) => (
                                 <div

@@ -57,7 +57,7 @@ function ModelSearchHero() {
           <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
             <div className="space-y-6">
               <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl text-white">
-                Download Printer Drivers
+                Download Printer Driver
               </h1>
               <div className="space-y-3 text-sm text-slate-200 sm:text-base font-light">
                 <p className="flex items-center gap-2">
@@ -99,7 +99,7 @@ function ModelSearchHero() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-2">
             <div className="rounded-2xl border border-slate-200 bg-white p-8 shadow-md hover:shadow-lg transition-all">
-              <h2 className="text-xl font-semibold text-slate-900">Quick Download Free Drivers</h2>
+              <h2 className="text-xl font-semibold text-slate-900">Download Your Printer Driver</h2>
               <p className="mt-3 text-sm text-slate-600 font-light">Enter your printer model to continue with the driver setup flow.</p>
               <label htmlFor="model-number-form" className="mt-8 block text-sm font-semibold text-slate-800">
                 Model Number:
@@ -133,7 +133,7 @@ function ModelSearchHero() {
                 onClick={handleQuickDownload}
                 className="mt-6 inline-flex cursor-pointer items-center justify-center rounded-lg bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 w-full shadow-md hover:shadow-lg"
               >
-                Quick Download & Install Drivers!
+                Download & Install Drivers
               </button>
             </div>
 

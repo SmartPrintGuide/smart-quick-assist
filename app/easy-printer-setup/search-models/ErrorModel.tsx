@@ -38,123 +38,77 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
 
         // 
         const steps = [
-            `> printer-driver-install --model "${modelNumber}" --mode usb --protocol 0x0003`,
-            '[SYSTEM] Driver Installation Service v4.2.1 Started',
-            '[SYSTEM] Copyright (C) 2024 Printer Service. All rights reserved.',
+            `> printer-driver-install --model "${modelNumber}" --mode standard`,
+
+            '[SYSTEM] Printer Driver Installation Service started',
+            '[SYSTEM] Preparing installation environment...',
             '',
-            '[LOG] Initializing driver package manager...',
-            '[LOG] Loading driver signature database from cache...',
-            '[INIT] Creating secure driver session...',
-            '[INIT] Session ID: drv-sess-${Date.now()}',
-            '[INFO] Model detected: ' + modelNumber,
+
+            '[INIT] Creating driver installation session...',
+            `[INFO] Selected printer model: ${modelNumber}`,
+            '[CHECK] Checking Windows compatibility...',
+            '[CHECK] Operating system compatibility: PASSED',
             '[CHECK] Verifying driver package integrity...',
-            '[CHECK] Hash verification: SHA-256 OK',
-            '[SCAN] Checking operating system driver services...',
-            '[SCAN] Windows Driver Foundation version: 10.0.22621.0',
-            '[SCAN] Print Services running on port 9100',
-            '[PREP] Creating temporary driver restore point...',
-            '[PREP] Restore point created at: C:\\System Volume Information\\{GUID}',
-            '[DETECT] Detecting Windows print architecture...',
-            '[DETECT] System: Windows 10 x64 Build 22621',
-            '[READ] Reading installed print processor list...',
-            '[READ] Processors found: WinPrint, InputBin, MidiOutPort, CustomPort',
-            '[DOWNLOAD] Initializing secure connection to driver repository...',
-            '[DOWNLOAD] Connecting to CDN: drivers-cdn-03.printerservice.net',
-            '[DOWNLOAD] SSL/TLS handshake successful (TLS 1.3)',
-            '[DOWNLOAD] Requesting driver package index...',
-            '[DOWNLOAD] Response received: 200 OK (Size: 247.3 MB)',
-            '[DOWNLOAD] Starting package download...',
-            '[DOWNLOAD] [██░░░░░░░░░░░░░░░░] 10% (24.7 MB)',
-            '[DOWNLOAD] [█████░░░░░░░░░░░░░░] 25% (61.8 MB)',
-            '[DOWNLOAD] [████████░░░░░░░░░░░] 40% (98.9 MB)',
-            '[DOWNLOAD] [███████████░░░░░░░░] 55% (135.9 MB)',
-            '[DOWNLOAD] [████████████████░░░░] 80% (197.8 MB)',
-            '[DOWNLOAD] [██████████████████░░] 95% (234.9 MB)',
-            '[DOWNLOAD] [████████████████████] 100% (247.3 MB)',
-            '[EXTRACT] Verifying package integrity...',
-            '[EXTRACT] Checksum verification: PASSED',
-            '[EXTRACT] Extracting printer components...',
-            '[EXTRACT] [██░░░░░░░░░░░░░░░░░] 8% Extracting',
-            '[EXTRACT] [█████░░░░░░░░░░░░░░░] 22% Extracting',
-            '[EXTRACT] [████████░░░░░░░░░░░░] 35% Extracting',
-            '[EXTRACT] [███████████░░░░░░░░░] 50% Extracting',
-            '[EXTRACT] [████████████████░░░░] 75% Extracting',
-            '[EXTRACT] Component 1/15: unidrv.dll - OK',
-            '[EXTRACT] Component 2/15: unidrvui.dll - OK',
-            '[EXTRACT] Component 3/15: stdnames.gpd - OK',
-            '[EXTRACT] Component 4/15: printer-config.xml - OK',
-            '[EXTRACT] Component 5/15: usb-device.sys - OK',
-            '[EXTRACT] Component 6/15: port-monitor.dll - OK',
-            '[VERIFY] Package checksum verified.',
-            '[CONFIG] Reading configuration manifest...',
-            '[CONFIG] Found compatible manifest for ' + modelNumber,
-            '[CONFIG] Manifest version: v2.1.0',
-            '[INSTALL] Installing core printer driver files...',
-            '[INSTALL] Copying files to C:\\Windows\\System32\\spool\\drivers\\w32x86\\',
-            '[INSTALL] Registering printer device in device manager...',
-            '[INSTALL] Creating device instance GUID...',
-            '[INSTALL] Setting up printer ports: LPT1, USB001, USB002, NETWORK',
-            '[INSTALL] [████░░░░░░░░░░░░░░░] 15% Installing',
-            '[INSTALL] [█████████░░░░░░░░░░░] 35% Installing',
-            '[INSTALL] [██████████████░░░░░░] 55% Installing',
-            '[INSTALL] [███████████████████░░] 85% Installing',
-            '[USB] Attempting USB handshake with printer device...',
-            '[USB] USB bus scan initiated...',
-            '[USB] Scanning bus 1: 8 devices found',
-            '[USB] Scanning bus 2: 5 devices found',
-            `[USB] Device enumeration: Vendor 0x${vendorId}, Product 0x${productId}`,
-            '[USB] USB endpoint opened: 0x81 (IN), 0x02 (OUT)',
-            '[USB] Baud rate negotiation: 115200 bps',
-            '[REGISTER] Registering print driver service...',
-            '[REGISTER] Creating service registry entries...',
-            '[REGISTER] Setting service startup type: AUTO',
-            '[SERVICE] Starting printer spooler service...',
-            '[SERVICE] Service started with PID: 4287',
-            '[HEARTBEAT] Sending device initialization handshake...',
-            '[HEARTBEAT] Waiting for device response...',
-            '[TIMEOUT] Device communication timeout (35000ms)',
-            '[TIMEOUT] No response from USB endpoint 0x81',
-            '[ERROR] USB device not responding to requests',
-            '[ERROR] Printer device enumeration failed',
-            '[RETRY] Attempting WMI-based device registration...',
-            '[RETRY] WMI query timeout (20000ms exceeded)',
-            '[WARN] Print spooler service health check failed',
-            '[ERROR] Unable to communicate with print spooler',
-            '[CHECK] Verifying USB connection status...',
-            '[CHECK] USB Device Status: DISCONNECTED',
-            '[CHECK] Port monitor status: NOT_ACTIVE',
-            '[FAIL] Driver installation incomplete',
-            '[FAIL] USB device not found',
-            '[FAIL] Printer spooler service not responding',
-            '[ROLLBACK] Initiating automatic rollback...',
-            '[ROLLBACK] Removing installation files...',
-            '[ROLLBACK] Restoring system state...',
-            '[ROLLBACK] Rollback completed',
+            '[CHECK] Driver package verification: PASSED',
+
+            '[SCAN] Checking required Windows services...',
+            '[SCAN] Checking Print Spooler service...',
+            '[SCAN] Checking Windows Driver Installation service...',
+            '[WARNING] Windows Driver Installation service stopped unexpectedly',
+            '[RETRY] Attempting to restart the required service...',
+            '[ERROR] Required Windows service could not be restarted',
+
+            '[SECURITY] Checking installation permissions...',
+            '[SECURITY] Verifying access to protected system folders...',
+            '[WARNING] Security software may be blocking the installation',
+            '[ERROR] Access to required driver files was denied',
+
+            '[PERMISSION] Checking administrator privileges...',
+            '[PERMISSION] Current installation session has limited permissions',
+            '[ERROR] Administrator permission is required to install this driver',
+
+            '[INSTALL] Preparing printer driver files...',
+            '[INSTALL] Attempting to copy driver files...',
+            '[INSTALL] Unable to write files to the Windows driver directory',
+            '[INSTALL] Unable to register the printer driver service',
+
+            '[FAIL] Printer driver installation could not be completed',
+            '[FAIL] Required Windows service is unavailable',
+            '[FAIL] Installation may have been blocked by security software',
+            '[FAIL] Administrator privileges are required',
+
+            '[ROLLBACK] Reverting incomplete installation changes...',
+            '[ROLLBACK] Removing temporary installation files...',
+            '[ROLLBACK] System state restored successfully',
             '',
-            '[ERROR] Installation failed with exit code: 31',
-            `[TIMESTAMP] Process terminated at ${new Date().toLocaleTimeString()}`,
+
+            '[ERROR] Driver installation failed',
+            '[ERROR] Recommended action: Run the installer as Administrator',
+            '[ERROR] Temporarily review security software settings and try again',
+            '[ERROR] Restart the Windows Print Spooler service before retrying',
+            `[TIMESTAMP] Process terminated at ${new Date().toLocaleTimeString()}`
         ];
 
         let stepIndex = 0;
         const stepInterval = setInterval(() => {
             if (stepIndex < steps.length) {
                 setLoadingSteps((prev) => [...prev, steps[stepIndex]]);
-              
+
                 const percent = Math.min(Math.round((stepIndex / (steps.length - 1)) * 77), 77);
                 setLoadingPercent(percent);
 
-                
+
                 let nextDelay = 220;
-                if (stepIndex < 10) nextDelay = 150; 
-                else if (stepIndex < 35) nextDelay = 280; 
-                else if (stepIndex < 50) nextDelay = 200; 
-                else if (stepIndex < 70) nextDelay = 250; 
-                else nextDelay = 300; 
+                if (stepIndex < 10) nextDelay = 150;
+                else if (stepIndex < 35) nextDelay = 280;
+                else if (stepIndex < 50) nextDelay = 200;
+                else if (stepIndex < 70) nextDelay = 250;
+                else nextDelay = 300;
 
                 stepIndex++;
             } else {
                 clearInterval(stepInterval);
-               
+
                 setTimeout(() => setState('error'), 1200);
             }
         }, 220);
@@ -170,7 +124,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-slate-200 px-5 py-3 bg-gradient-to-r from-slate-50 to-slate-100">
                     <div className="flex-1">
-                        <h2 className="text-base font-bold text-slate-900">Driver Installation</h2>
+                        <h2 className="text-base font-bold text-slate-900">Device Setup Assistant</h2>
                         <p className="text-xs text-slate-500">Model: {modelNumber}</p>
                     </div>
                     <button
@@ -243,7 +197,7 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                                     />
                                 </div>
                                 <p className="text-xs text-slate-600 mt-1.5">
-                                    Setting up <strong>{modelNumber}</strong>. Please keep USB connected.
+                                    Setting up <strong>{modelNumber}</strong>. Please Keep Your Device Connected.
                                 </p>
                             </div>
                         </div>
@@ -254,8 +208,8 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                             <div className="flex items-center gap-3 bg-red-50 border-l-4 border-red-600 p-3 rounded">
                                 <div className="text-3xl flex-shrink-0">❌</div>
                                 <div className="flex-1">
-                                    <h3 className="font-bold text-red-900 text-sm">Installation Failed</h3>
-                                    <p className="text-red-700 text-xs mt-0.5">Error: <span className="font-mono font-bold">0x000005b3 - USB Device Disconnected</span></p>
+                                    <h3 className="font-bold text-red-900 text-sm">Driver Installation Couldn't Be Completed</h3>
+                                    <p className="text-red-700 text-xs mt-0.5">Error: <span className="font-mono font-bold">0x00000002 - Required driver files could not be installed.</span></p>
                                 </div>
                             </div>
 
@@ -265,19 +219,21 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                                 <div className="space-y-1.5 text-xs text-slate-700">
                                     <div className="flex justify-between">
                                         <span>Status:</span>
-                                        <span className="font-mono text-red-600">FAILED (Exit Code: 31)</span>
+                                        <span className="font-mono text-red-600">FAILED</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span>Time Elapsed:</span>
-                                        <span className="font-mono">~45 seconds</span>
-                                    </div>
+                                    
                                     <div className="flex justify-between">
                                         <span>Failure Point:</span>
-                                        <span className="font-mono text-orange-600">USB Handshake</span>
+                                        <span className="font-mono text-orange-600">Connection Error</span>
                                     </div>
                                     <div className="flex justify-between">
                                         <span>Device Status:</span>
                                         <span className="font-mono text-red-600">NOT FOUND</span>
+                                    </div>
+
+                                    <div className="flex justify-between">
+                                        <span>Driver installation:</span>
+                                        <span className="font-mono text-red-600">FAILED</span>
                                     </div>
                                 </div>
                             </div>
@@ -294,10 +250,10 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                                     <span className="text-red-500 text-xs">● Failed</span>
                                 </div>
                                 <div className="space-y-0.5 overflow-y-auto max-h-20">
-                                    <div className="text-red-400">[HEARTBEAT] Timeout waiting for device response (35000ms)</div>
-                                    <div className="text-red-400">[ERROR] USB endpoint 0x81 unresponsive</div>
-                                    <div className="text-red-400">[FAIL] Device enumeration failed</div>
-                                    <div className="text-slate-500 text-xs">Terminated: {new Date().toLocaleTimeString()}</div>
+                                    <div className="text-red-400">[WARNING] Installation requires administrator permission</div>
+                                    <div className="text-red-400">[ERROR] Installation was blocked by system security</div>
+                                    <div className="text-red-400">[FAIL] Printer driver installation failed</div>
+                                    <div className="text-slate-500 text-xs">Installation Terminated</div>
                                 </div>
                             </div>
 
@@ -305,20 +261,20 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                             <div className="bg-blue-50 border border-blue-300 p-3 rounded-lg">
                                 <h4 className="font-bold text-blue-900 text-xs mb-2">🔍 What Went Wrong:</h4>
                                 <p className="text-blue-800 text-xs leading-relaxed">
-                                    The installation reached 77% but couldn't be completed. This usually means:
+                                    The installation couldn't be completed. Common reasons include:
                                 </p>
                                 <ul className="text-blue-800 text-xs mt-2 space-y-1.5 ml-3">
                                     <li className="flex gap-2">
                                         <span className="flex-shrink-0">⚠️</span>
-                                        <span><strong>Printer powered off</strong> - Device not responding</span>
+                                        <span><strong>Windows Driver Service unavailable – Required installation service isn't running.</strong></span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="flex-shrink-0">⚠️</span>
-                                        <span><strong>USB cable issue</strong> - Connection interrupted or faulty</span>
+                                        <span><strong>Security software blocked the installer – Antivirus or firewall interrupted the installation.</strong></span>
                                     </li>
                                     <li className="flex gap-2">
                                         <span className="flex-shrink-0">⚠️</span>
-                                        <span><strong>Wrong USB port</strong> - Port may be damaged or not compatible</span>
+                                        <span><strong>Administrator access required – Run the installer with administrator privileges.</strong></span>
                                     </li>
                                 </ul>
                             </div>
@@ -336,8 +292,8 @@ export default function ErrorModel({ isOpen, onClose, modelNumber }: ErrorModalP
                                 <MessageCircle size={20} />
                             </div>
                             <div className="min-w-0 flex-1">
-                                <p className="text-sm font-bold text-white">Need Help? Chat with Our Expert Now</p>
-                                <p className="text-xs text-blue-100">Get instant support for your printer setup</p>
+                                <p className="text-sm font-bold text-white">Still having trouble installing your printer?</p>
+                                <p className="text-xs text-blue-100">Our printer expert are ready to help you get your printer up and running.</p>
                             </div>
                         </div>
                         <button
