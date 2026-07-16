@@ -7,6 +7,7 @@ import CommonIssues from "./CommonIssues";
 import SetupReview from "./SetupReview";
 import SupportOptions from "./SupportOptions";
 import SetupFooter from "./SetupFooter";
+import ContactSetup from "./ContactSetup";
 
 export const metadata: Metadata = {
   title: 'Printer Setup & Troubleshooting Guide | Smart Quick Assist',
@@ -27,9 +28,11 @@ function Page() {
       <SetupHero />
       <HowItWorks />
       <CommonIssues />
-      <SupportOptions />
-      <SetupReview />
 
+      <SetupReview />
+      <SupportOptions />
+
+      <ContactSetup />
       <SetupFooter />
     </>
   );

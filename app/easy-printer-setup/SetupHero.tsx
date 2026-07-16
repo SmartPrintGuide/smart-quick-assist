@@ -4,8 +4,9 @@ import React from "react";
 import { useRouter } from "next/navigation";
 import {
     ArrowRight,
-    Headphones,
+    Check,
     Printer,
+    Headphones,
     ShieldCheck,
     Sparkles,
     Wifi,
@@ -76,22 +77,25 @@ export default function SetupHero() {
 
                             {[
                                 {
-                                    icon: <Headphones size={18} />,
+                                    icon: <Check size={18} />,
                                     title: "Easy Guides",
+                                    subtitle: "Step by Step",
                                 },
                                 {
-                                    icon: <Wifi size={18} />,
+                                    icon: <Check size={18} />,
                                     title: "Wi-Fi Setup",
+                                    subtitle: "Quick & Easy",
                                 },
                                 {
-                                    icon: <ShieldCheck size={18} />,
+                                    icon: <Check size={18} />,
                                     title: "Fast Solutions",
+                                    subtitle: "24/7 Chat Help",
                                 },
                             ].map((item, index) => (
                                 <div
                                     key={item.title}
                                     className={`flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-3 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl lg:gap-4 lg:p-4 ${index === 2
-                                        ? "col-span-2 mx-auto w-full max-w-[220px] lg:col-span-1 lg:max-w-none"
+                                        ? "col-span-2 mx-auto w-full max-w-none lg:col-span-1"
                                         : ""
                                         }`}
                                 >
@@ -99,13 +103,13 @@ export default function SetupHero() {
                                         {item.icon}
                                     </div>
 
-                                    <div>
-                                        <p className="text-[13px] font-bold text-slate-900 lg:text-sm">
+                                    <div className="min-w-0">
+                                        <p className="text-[12px] font-bold text-slate-900 lg:text-[13px] whitespace-nowrap truncate">
                                             {item.title}
                                         </p>
 
-                                        <p className="text-xs text-slate-500">
-                                            Fast & Reliable
+                                        <p className="text-[11px] text-slate-500 whitespace-nowrap truncate lg:text-xs">
+                                            {item.subtitle}
                                         </p>
                                     </div>
                                 </div>

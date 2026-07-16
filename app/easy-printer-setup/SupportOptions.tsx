@@ -1,120 +1,123 @@
 "use client";
 
 import React from "react";
-import { openJivoChat } from "@/lib/jivoChat";
 import {
-  Headphones,
-  MessageCircleMore,
-  Sparkles,
   ArrowRight,
+  MessageCircle,
+  FileText,
+  Wrench,
 } from "lucide-react";
+import { openJivoChat } from "@/lib/jivoChat";
 
-const supportItems = [
-  {
-    title: "Easy Guides",
-    description:
-      "Follow simple step-by-step instructions for common printer issues.",
-    icon: <Sparkles size={20} />,
-  },
-  {
-    title: "Live Chat",
-    description:
-      "Talk with our support team for quick troubleshooting assistance.",
-    icon: <MessageCircleMore size={20} />,
-  },
-  {
-    title: "Expert Support",
-    description:
-      "Get reliable help with setup, Wi-Fi, scanner, and offline problems.",
-    icon: <Headphones size={20} />,
-  },
-];
-
-export default function SupportOptions() {
+function SupportOptions() {
   return (
-    <section
-      id="help"
-      className="bg-gradient-to-b from-white via-slate-50 to-white py-20"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white py-16 sm:py-20">
 
-        <div className="grid gap-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-[0_20px_60px_rgba(15,23,42,.06)] lg:grid-cols-[1fr_1fr] lg:p-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-          {/* Left */}
+        {/* Main CTA Section */}
+        <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-[#1965D9] via-blue-600 to-sky-600 p-8 sm:p-12 text-white shadow-[0_25px_60px_rgba(25,101,217,.28)]">
 
-          <div className="flex flex-col justify-center">
+          {/* Glow */}
+          <div className="absolute -left-16 top-0 h-48 w-48 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute right-0 bottom-0 h-56 w-56 rounded-full bg-sky-300/20 blur-3xl" />
 
-            <span className="inline-flex w-fit items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#1965D9]">
-              Need Help?
-            </span>
+          <div className="relative z-10 grid gap-10 lg:grid-cols-[1fr_1.2fr]">
 
-            <h2
-              className="mt-6 text-3xl font-bold tracking-tight text-slate-900 lg:text-4xl"
-              style={{ fontFamily: "'Poppins','Inter',sans-serif" }}
-            >
-              We're Here to
-              <br />
-              Make Printing Easy.
-            </h2>
+            {/* Left Content */}
+            <div>
 
-            <p className="mt-5 max-w-lg text-[16px] leading-8 text-slate-600">
-              Set up your printer or fix Wi-Fi, offline, and scanner issues with easy guides and expert support.
-            </p>
+              <span className="inline-flex rounded-full bg-white/20 px-4 py-2 text-sm font-semibold backdrop-blur">
+                Need additional guidance?
+              </span>
 
-            <div className="mt-8">
+              <h3 className="mt-6 text-3xl sm:text-4xl font-bold leading-tight">
+                Printer help that feels simple
+              </h3>
 
-              <button
-                type="button"
+              <p className="mt-5 max-w-xl text-base leading-7 text-blue-100">
+                Browse setup resources and troubleshooting information for Wi-Fi, offline printers, scanner issues, drivers, and common printing problems.
+              </p>
+
+              <button 
                 onClick={openJivoChat}
-                className="group cursor-pointer inline-flex items-center gap-2 rounded-xl bg-[#1965D9] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-blue-500/40"
-              >
+                className="group mt-8 cursor-pointer inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[#1965D9] transition-all duration-300 hover:bg-slate-100 hover:-translate-y-1">
 
-                Start Live Chat
+                Browse Printer Guides
 
                 <ArrowRight
-                  size={17}
-                  className="transition-transform group-hover:translate-x-1"
+                  size={18}
+                  className="ml-2 transition-transform duration-300 group-hover:translate-x-1"
                 />
 
               </button>
 
-              <p className="mt-3 text-sm text-slate-500">
-                Average response time: under 2 minutes.
-              </p>
+            </div>
+
+            {/* Right - Feature Cards */}
+            <div className="grid gap-4 sm:gap-5">
+
+              {/* Card 1 */}
+              <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur p-5 sm:p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
+                    <FileText size={22} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">
+                      Easy-to-follow guides
+                    </h4>
+                    <p className="mt-1 text-sm text-blue-100">
+                      Clear instructions for common printer tasks and issues.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur p-5 sm:p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
+                    <MessageCircle size={22} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">
+                      Live chat availability
+                    </h4>
+                    <p className="mt-1 text-sm text-blue-100">
+                      Use live chat when assistance is available on the website.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="rounded-2xl border border-white/20 bg-white/10 backdrop-blur p-5 sm:p-6">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/20">
+                    <Wrench size={22} className="text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-white">
+                      Practical troubleshooting
+                    </h4>
+                    <p className="mt-1 text-sm text-blue-100">
+                      Review relevant steps before replacing equipment or supplies.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
             </div>
 
           </div>
 
-          {/* Right */}
-
-          <div className="space-y-5">
-
-            {supportItems.map((item) => (
-              <div
-                key={item.title}
-                className="group flex items-start gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
-              >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-[#1965D9] transition-all duration-300 group-hover:bg-[#1965D9] group-hover:text-white">
-                  {item.icon}
-                </div>
-
-                <div>
-                  <h3 className="text-lg font-semibold text-slate-900">
-                    {item.title}
-                  </h3>
-
-                  <p className="mt-2 text-sm leading-7 text-slate-600">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-
-          </div>
-
         </div>
+
       </div>
+
     </section>
   );
 }
+
+export default SupportOptions;

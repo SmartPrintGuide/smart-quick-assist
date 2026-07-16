@@ -107,17 +107,7 @@ function ModelSearchheroButtom() {
         </div>
 
         {/* Info Banner */}
-        <div className="rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 p-8 shadow-sm">
-          <div className="flex gap-4">
-            <div className="text-3xl flex-shrink-0">💡</div>
-            <div>
-              <h3 className="text-lg font-semibold text-slate-900">Need Help?</h3>
-              <p className="mt-2 text-slate-700 leading-relaxed">
-                If you encounter any issues during installation, our support team is ready to help 24/7. Simply click the chat button in the error screen to get instant assistance with USB connection, driver installation, or printer detection problems.
-              </p>
-            </div>
-          </div>
-        </div>
+       
       </div>
     </section>
   );

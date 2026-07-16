@@ -1,29 +1,29 @@
 "use client";
 
 import React from "react";
-import { MessageCircleMore, Search, Wrench } from "lucide-react";
+import { Check, FileText, Search } from "lucide-react";
 
 const steps = [
   {
     id: "01",
-    title: "Pick the problem",
+    title: "Choose your issue",
     description:
-      "Start with the issue you are seeing, whether it is a connection problem, a scanner issue, or a paper jam.",
+      "Select the printer problem that best matches what you are experiencing.",
     icon: <Search size={26} />,
   },
   {
     id: "02",
     title: "Follow the guide",
     description:
-      "Each step is written in plain language so you can work through it without stress.",
-    icon: <MessageCircleMore size={26} />,
+      "Work through simple instructions designed for everyday printer users.",
+    icon: <FileText size={26} />,
   },
   {
     id: "03",
-    title: "Get back to printing",
+    title: "Start printing again",
     description:
-      "Once the final step is done, your printer should be ready to use again.",
-    icon: <Wrench size={26} />,
+      "Complete the recommended steps and check whether the issue is resolved.",
+    icon: <Check size={26} />,
   },
 ];
 
@@ -36,10 +36,10 @@ function HowItWorks() {
             Simple process
           </span>
           <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl tracking-tight" style={{fontFamily: "'Poppins', 'Inter', sans-serif"}}>
-            How it works
+            A clearer way to solve printer problems
           </h2>
           <p className="mt-4 text-sm leading-7 text-slate-600 sm:text-base font-light" style={{fontFamily: "'Poppins', 'Inter', sans-serif"}}>
-            No confusing jargon. Just a clear path to the fix you need.
+            No confusing technical language. Choose your issue, follow the steps, and get back to printing.
           </p>
         </div>
 
@@ -49,15 +49,15 @@ function HowItWorks() {
               key={step.id}
               className="group relative rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
             >
-              <div className="absolute right-6 top-6 text-4xl font-extrabold text-slate-100 group-hover:text-blue-100">
-                {step.id}
-              </div>
+              <span className="inline-block rounded-full bg-blue-50 px-3 py-1 text-xs font-bold text-blue-700">
+                STEP {step.id}
+              </span>
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
+              <div className="mt-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100 text-blue-700">
                 {step.icon}
               </div>
 
-              <h3 className="mt-7 text-lg font-semibold text-slate-900">{step.title}</h3>
+              <h3 className="mt-5 text-lg font-semibold text-slate-900">{step.title}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{step.description}</p>
             </div>
           ))}

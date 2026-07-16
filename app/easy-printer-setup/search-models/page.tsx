@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import ModelSearchHero from './ModelSearchHero';
 import ModelSearchheroButtom from './ModelSearchheroButtom';
 import SetupFooter from '../SetupFooter';
+import ContactSetup from '../ContactSetup';
 
 export const metadata: Metadata = {
   title: 'Download Printer Drivers - Quick & Easy Setup | Smart Quick Assist',
@@ -22,6 +23,7 @@ function Page() {
     <>
       <ModelSearchHero />
       <ModelSearchheroButtom />
+      <ContactSetup />
       <SetupFooter />
     </>
   );
