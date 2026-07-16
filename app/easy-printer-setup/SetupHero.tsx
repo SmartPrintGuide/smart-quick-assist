@@ -25,7 +25,7 @@ export default function SetupHero() {
     const router = useRouter();
 
     return (
-        <section className="relative min-h-[88vh]  bg-gradient-to-br from-slate-50 to-white">
+        <section className="relative min-h-[78vh]  bg-gradient-to-br from-slate-50 to-white">
 
             <div className="relative z-10 mx-auto max-w-7xl px-6 py-12 lg:px-6">
 
